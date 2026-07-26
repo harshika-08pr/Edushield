@@ -1,0 +1,713 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Heading -->
+
+    <div class="text-center mb-5">
+
+        <h1 class="display-5 fw-bold hero-title">
+            🎓 Student Academic Risk Prediction
+        </h1>
+
+        <p class="lead text-muted">
+            Enter the student's details below to predict their academic risk
+            using the trained XGBoost AI model.
+        </p>
+
+    </div>
+
+    <form action="/predict" method="POST">
+
+        <!-- ================= Academic ================= -->
+
+        <div class="card shadow-lg border-0 mb-5">
+
+            <div class="card-header bg-primary text-white">
+
+                <h3 class="mb-0">
+
+                    📚 Academic Information
+
+                </h3>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <!-- Semester -->
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+
+                            Current Semester
+
+                        </label>
+
+                        <input
+                            type="number"
+                            name="semester"
+                            class="form-control"
+                            min="1"
+                            max="8"
+                            placeholder="Example: 3"
+                            required>
+
+                    </div>
+
+                    <!-- Age -->
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+
+                            Age (Years)
+
+                        </label>
+
+                        <input
+                            type="number"
+                            name="age"
+                            class="form-control"
+                            min="16"
+                            max="40"
+                            placeholder="Example: 19"
+                            required>
+
+                    </div>
+
+                    <!-- Gender -->
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+
+                            Gender
+
+                        </label>
+
+                        <select
+                            class="form-select"
+                            name="gender"
+                            required>
+
+                            <option value="">Choose...</option>
+
+                            <option value="0">
+
+                                Female
+
+                            </option>
+
+                            <option value="1">
+
+                                Male
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Attendance -->
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+
+                            Attendance (%)
+
+                        </label>
+
+                        <input
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            max="100"
+                            class="form-control"
+                            name="attendance"
+                            placeholder="Example: 91"
+                            required>
+
+                    </div>
+
+                    <!-- CGPA -->
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+
+                            Previous CGPA (0–10)
+
+                        </label>
+
+                        <input
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            max="10"
+                            class="form-control"
+                            name="cgpa"
+                            placeholder="Example: 8.45"
+                            required>
+
+                    </div>
+
+                    <!-- Internal -->
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+
+                            Internal Marks (Out of 100)
+
+                        </label>
+
+                        <input
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            max="100"
+                            class="form-control"
+                            name="internal_marks"
+                            placeholder="Example: 82"
+                            required>
+
+                    </div>
+
+                    <!-- Assignment -->
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+
+                            Assignment Completion (%)
+
+                        </label>
+
+                        <input
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            max="100"
+                            class="form-control"
+                            name="assignment_completion"
+                            placeholder="Example: 95"
+                            required>
+
+                    </div>
+
+                    <!-- Study Hours -->
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+
+                            Study Hours per Week (0–168 Hours)
+
+                        </label>
+
+                        <input
+                            type="number"
+                            step="0.5"
+                            min="0"
+                            max="168"
+                            class="form-control"
+                            name="study_hours"
+                            placeholder="Example: 18"
+                            required>
+
+                    </div>
+
+                    <!-- Backlogs -->
+
+                    <div class="col-md-4 mb-4">
+
+                        <label class="form-label">
+
+                            Number of Active Backlogs
+
+                        </label>
+
+                        <input
+                            type="number"
+                            min="0"
+                            class="form-control"
+                            name="backlogs"
+                            placeholder="Example: 1"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= Psychological Information ================= -->
+
+        <div class="card shadow-lg border-0 mb-5">
+
+         <div class="card-header bg-info text-white">
+
+             <h3 class="mb-0">
+
+                 🧠 Psychological & Wellbeing Information
+
+             </h3>
+
+         </div>
+
+        <div class="card-body">
+
+        <div class="row">
+
+            <!-- Stress -->
+
+            <div class="col-md-3 mb-4">
+
+                <label class="form-label">
+
+                    Stress Level (1–10)
+
+                </label>
+
+                <input
+                    type="number"
+                    class="form-control"
+                    name="stress"
+                    min="1"
+                    max="10"
+                    placeholder="Example: 6"
+                    required>
+
+            </div>
+
+            <!-- Motivation -->
+
+            <div class="col-md-3 mb-4">
+
+                <label class="form-label">
+
+                    Motivation Level (1–10)
+
+                </label>
+
+                <input
+                    type="number"
+                    class="form-control"
+                    name="motivation"
+                    min="1"
+                    max="10"
+                    placeholder="Example: 8"
+                    required>
+
+            </div>
+
+            <!-- Sleep -->
+
+            <div class="col-md-3 mb-4">
+
+                <label class="form-label">
+
+                    Average Sleep (Hours/Day)
+
+                </label>
+
+                <input
+                    type="number"
+                    class="form-control"
+                    step="0.5"
+                    min="0"
+                    max="24"
+                    name="sleep_hours"
+                    placeholder="Example: 7.5"
+                    required>
+
+            </div>
+
+            <!-- Family Support -->
+
+            <div class="col-md-3 mb-4">
+
+                <label class="form-label">
+
+                    Family Support (1–10)
+
+                </label>
+
+                <input
+                    type="number"
+                    class="form-control"
+                    name="family_support"
+                    min="1"
+                    max="10"
+                    placeholder="Example: 9"
+                    required>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Lifestyle Information ================= -->
+
+<div class="card shadow-lg border-0 mb-5">
+
+    <div class="card-header bg-success text-white">
+
+        <h3 class="mb-0">
+
+            🌿 Lifestyle Information
+
+        </h3>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <!-- Internet -->
+
+            <div class="col-md-4 mb-4">
+
+                <label class="form-label">
+
+                    Internet Access
+
+                </label>
+
+                <select
+                    class="form-select"
+                    name="internet_access"
+                    required>
+
+                    <option value="">Choose...</option>
+
+                    <option value="1">Yes</option>
+
+                    <option value="0">No</option>
+
+                </select>
+
+            </div>
+
+            <!-- Extracurricular -->
+
+            <div class="col-md-4 mb-4">
+
+                <label class="form-label">
+
+                    Participates in Extracurricular Activities
+
+                </label>
+
+                <select
+                    class="form-select"
+                    name="extracurricular"
+                    required>
+
+                    <option value="">Choose...</option>
+
+                    <option value="1">Yes</option>
+
+                    <option value="0">No</option>
+
+                </select>
+
+            </div>
+
+            <!-- Financial -->
+
+            <div class="col-md-4 mb-4">
+
+                <label class="form-label">
+
+                    Financial Difficulty (1–10)
+
+                </label>
+
+                <input
+                    type="number"
+                    class="form-control"
+                    name="financial_difficulty"
+                    min="1"
+                    max="10"
+                    placeholder="Example: 4"
+                    required>
+
+            </div>
+
+            <!-- Mental Wellbeing -->
+
+            <div class="col-md-4 mb-4">
+
+                <label class="form-label">
+
+                    Mental Wellbeing (1–10)
+
+                </label>
+
+                <input
+                    type="number"
+                    class="form-control"
+                    name="mental_wellbeing"
+                    min="1"
+                    max="10"
+                    placeholder="Example: 8"
+                    required>
+
+            </div>
+
+            <!-- Screen Time -->
+
+            <div class="col-md-4 mb-4">
+
+                <label class="form-label">
+
+                    Daily Screen Time (Hours)
+
+                </label>
+
+                <input
+                    type="number"
+                    class="form-control"
+                    step="0.5"
+                    min="0"
+                    max="24"
+                    name="screen_time"
+                    placeholder="Example: 5"
+                    required>
+
+            </div>
+
+            <!-- Commute -->
+
+            <div class="col-md-4 mb-4">
+
+                <label class="form-label">
+
+                    Daily Commute Time (Minutes)
+
+                </label>
+
+                <input
+                    type="number"
+                    class="form-control"
+                    min="0"
+                    max="300"
+                    name="commute_time"
+                    placeholder="Example: 45"
+                    required>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= Predict Button ================= -->
+
+<div class="text-center mb-5">
+
+    <button type="submit" class="btn btn-lg btn-primary px-5 py-3 predict-btn">
+
+        <i class="bi bi-cpu-fill"></i>
+
+        Predict Academic Risk
+
+    </button>
+
+    <p class="text-muted mt-3">
+
+        Our AI model analyses 19 student attributes before making a prediction.
+
+    </p>
+
+</div>
+<div id="loading" class="loading-screen">
+
+    <div class="spinner-border text-primary"
+         style="width:5rem;height:5rem">
+
+    </div>
+
+    <h3 class="mt-4">
+
+        Analysing Student Data...
+
+    </h3>
+
+</div>
+
+</form>
+
+<!-- ================= Prediction Result ================= -->
+
+{% if prediction %}
+
+<div class="card shadow-lg border-0 prediction-card mb-5">
+
+    <div class="card-header text-center">
+
+        <h2>
+
+            🎯 Prediction Result
+
+        </h2>
+
+    </div>
+
+    <div class="card-body text-center">
+
+        {% if prediction == "Not At Risk" %}
+
+            <div class="alert alert-success">
+
+                <h2>
+
+                    ✅ {{ prediction }}
+
+                </h2>
+
+                <h5>
+
+                    Great! The student currently shows a low likelihood of
+                    academic risk.
+
+                </h5>
+
+            </div>
+
+        {% else %}
+
+            <div class="alert alert-danger">
+
+                <h2>
+
+                    ⚠️ {{ prediction }}
+
+                </h2>
+
+                <h5>
+
+                    Early intervention is recommended to improve academic
+                    performance.
+
+                </h5>
+
+            </div>
+
+        {% endif %}
+
+        <div class="row mt-4">
+
+            <div class="col-md-6">
+
+                <div class="result-box">
+
+                    <h3>
+
+                        Confidence
+
+                    </h3>
+
+                    <h1 class="display-5">
+
+                        {{ confidence }}%
+
+                    </h1>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="result-box">
+
+                    <h3>
+
+                        Risk Level
+
+                    </h3>
+
+                    <h1>
+
+                        {{ risk_level }}
+
+                    </h1>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+<!-- ================= Recommendations ================= -->
+
+{% if recommendations %}
+
+<div class="card shadow-lg border-0 mb-5">
+
+    <div class="card-header bg-success text-white">
+
+        <h3>
+
+            💡 Personalized Recommendations
+
+        </h3>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            {% for recommendation in recommendations %}
+
+            <div class="col-lg-6 mb-3">
+
+                <div class="recommendation-card">
+
+                    <h5>
+
+                        ✔ {{ recommendation }}
+
+                    </h5>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

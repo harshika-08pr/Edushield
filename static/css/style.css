@@ -1,0 +1,908 @@
+/* ===================================================
+   EduShield - Premium AI Platform Stylesheet
+=================================================== */
+
+
+/* ================= GLOBAL ================= */
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    font-family:'Inter','Segoe UI',Arial,sans-serif;
+
+    background:#f8fafc;
+
+    color:#1e293b;
+
+    overflow-x:hidden;
+
+}
+
+
+h1,h2,h3,h4,h5{
+
+    font-weight:800;
+
+}
+
+
+p{
+
+    color:#64748b;
+
+    line-height:1.7;
+
+}
+
+
+.section-padding{
+
+    padding:90px 0;
+
+}
+
+
+
+
+/* ================= NAVBAR ================= */
+
+
+.navbar{
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #0f172a,
+    #1e40af
+    );
+
+
+    padding:15px 0;
+
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.15);
+
+
+}
+
+
+
+.navbar-brand{
+
+
+    font-size:28px;
+
+    font-weight:900;
+
+    color:white !important;
+
+}
+
+
+
+.nav-link{
+
+
+    color:white !important;
+
+    font-size:17px;
+
+    margin-left:15px;
+
+    transition:.3s;
+
+
+}
+
+
+
+.nav-link:hover,
+.nav-link.active{
+
+
+    color:#22d3ee !important;
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+/* ================= HERO ================= */
+
+
+.hero-section{
+
+padding:100px 0;
+
+background:
+
+linear-gradient(
+135deg,
+#ffffff,
+#f1f5ff
+);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+.hero-section:before{
+
+content:"";
+
+position:absolute;
+
+width:500px;
+
+height:500px;
+
+background:#2563eb;
+
+opacity:.08;
+
+border-radius:50%;
+
+top:-200px;
+
+right:-150px;
+
+}
+
+
+
+.hero-title{
+
+font-size:3.5rem;
+
+font-weight:900;
+
+color:#0f172a;
+
+line-height:1.2;
+
+}
+
+
+
+.hero-title span{
+
+color:#2563eb;
+
+}
+
+
+
+.hero-text{
+
+font-size:1.15rem;
+
+color:#475569;
+
+max-width:580px;
+
+}
+
+.hero-image{
+
+max-width:90%;
+
+filter:
+
+drop-shadow(
+0 25px 40px rgba(37,99,235,.15)
+);
+
+
+animation:floating 5s infinite;
+
+}
+
+
+
+
+/* ================= BUTTONS ================= */
+
+
+.btn-primary{
+
+
+background:#2563eb;
+
+border:none;
+
+border-radius:30px;
+
+padding:14px 35px;
+
+box-shadow:
+
+0 10px 25px rgba(37,99,235,.25);
+
+
+}
+
+
+
+.btn-primary:hover{
+
+
+background:#1d4ed8;
+
+transform:translateY(-3px);
+
+
+}
+
+
+
+
+.btn-outline-primary{
+
+
+    border-radius:40px;
+
+    padding:14px 35px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* ================= CARDS ================= */
+
+
+.card,
+.feature-card,
+.stat-card,
+.step-card,
+.tech-card,
+.testimonial-card{
+
+
+    background:white;
+
+
+    border:none;
+
+
+    border-radius:25px;
+
+
+    padding:30px;
+
+
+    box-shadow:
+
+
+    0 15px 35px rgba(15,23,42,.08);
+
+
+    transition:.4s;
+
+
+}
+
+
+
+.card:hover,
+.feature-card:hover,
+.stat-card:hover,
+.step-card:hover,
+.tech-card:hover,
+.testimonial-card:hover{
+
+
+    transform:translateY(-12px);
+
+
+    box-shadow:
+
+
+    0 25px 50px rgba(37,99,235,.18);
+
+
+}
+
+
+
+
+
+/* ================= FEATURE SECTION ================= */
+
+
+.feature-icon{
+
+
+    height:70px;
+
+    width:70px;
+
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+    border-radius:20px;
+
+
+    font-size:35px;
+;
+
+
+    background:
+
+
+    linear-gradient(
+    135deg,
+    #dbeafe,
+    #ede9fe
+    );
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+/* ================= STATS ================= */
+
+
+.stats-section{
+
+
+    padding:80px 0;
+
+    background:#f1f5f9;
+
+
+}
+
+
+
+.stat-card{
+
+
+    text-align:center;
+
+
+}
+
+
+
+.stat-card h2,
+.counter{
+
+
+color:#2563eb;
+
+
+font-weight:900;
+
+
+}
+
+
+
+
+/* ================= TIMELINE ================= */
+
+
+.timeline{
+
+
+    max-width:850px;
+
+    margin:auto;
+
+    position:relative;
+
+
+}
+
+
+
+.timeline:before{
+
+
+    content:"";
+
+    position:absolute;
+
+
+    left:35px;
+
+
+    width:3px;
+
+    height:100%;
+
+
+    background:
+
+
+    linear-gradient(
+    #2563eb,
+    #9333ea
+    );
+
+
+}
+
+
+
+.timeline-step{
+
+
+    display:flex;
+
+    gap:30px;
+
+    margin-bottom:45px;
+
+    align-items:center;
+
+
+}
+
+
+
+.step-icon{
+
+
+    min-width:70px;
+
+    height:70px;
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    background:
+
+
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #9333ea
+    );
+
+
+    color:white;
+
+
+    font-size:25px;
+
+    font-weight:900;
+
+
+}
+
+
+
+
+
+/* ================= WHY CHOOSE ================= */
+
+
+.ai-box{
+
+
+    padding:50px;
+
+
+    border-radius:35px;
+
+
+    color:white;
+
+
+    background:
+
+
+    linear-gradient(
+    135deg,
+    #1e3a8a,
+    #7c3aed
+    );
+
+
+    box-shadow:
+
+
+    0 25px 60px rgba(37,99,235,.35);
+
+
+}
+
+
+
+.benefit-list p{
+
+
+    font-size:18px;
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+/* ================= FORMS ================= */
+
+
+form{
+
+
+    background:white;
+
+
+    padding:35px;
+
+
+    border-radius:25px;
+
+
+    box-shadow:
+
+
+    0 15px 35px rgba(0,0,0,.08);
+
+
+}
+
+
+
+input,
+select,
+textarea{
+
+
+    border-radius:12px !important;
+
+    padding:12px !important;
+
+    border:1px solid #cbd5e1 !important;
+
+
+}
+
+
+
+
+/* ================= RESULT CARD ================= */
+
+
+.result-card{
+
+
+    margin-top:40px;
+
+
+    background:white;
+
+
+    padding:35px;
+
+
+    border-radius:25px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.high-risk{
+
+
+    color:#dc2626;
+
+    font-weight:800;
+
+
+}
+
+
+
+.medium-risk{
+
+
+    color:#f59e0b;
+
+    font-weight:800;
+
+
+}
+
+
+
+.low-risk{
+
+
+    color:#16a34a;
+
+    font-weight:800;
+
+
+}
+
+
+
+
+
+/* ================= TABLES ================= */
+
+
+.table{
+
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+
+}
+
+
+
+.table th{
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+    );
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+/* ================= CTA ================= */
+
+
+.cta-section{
+
+
+    padding:90px 20px;
+
+
+    color:white;
+
+
+    background:
+
+
+    linear-gradient(
+    135deg,
+    #1e40af,
+    #7c3aed
+    );
+
+
+}
+
+
+
+.cta-section h2{
+
+
+    font-size:3rem;
+
+
+}
+
+
+
+
+
+/* ================= LOADING SCREEN ================= */
+
+
+.loading-screen{
+
+
+    display:none;
+
+
+    position:fixed;
+
+
+    top:0;
+
+    left:0;
+
+
+    width:100%;
+
+    height:100%;
+
+
+    background:
+
+    rgba(255,255,255,.95);
+
+
+    z-index:9999;
+
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+
+}
+
+
+
+
+
+/* ================= FADE ANIMATION ================= */
+
+
+.card,
+.card,
+.feature-card{
+    opacity:1;
+    transform:translateY(0);
+    transition:0.5s;
+}
+
+
+
+.show-card{
+
+
+    opacity:1;
+
+
+    transform:translateY(0);
+
+
+}
+
+
+
+
+
+/* ================= FOOTER ================= */
+
+
+footer{
+
+
+    margin-top:60px;
+
+
+    background:
+
+
+    linear-gradient(
+    135deg,
+    #0f172a,
+    #1e40af
+    );
+
+
+    color:white;
+
+
+    padding:25px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+/* ================= RESPONSIVE ================= */
+
+
+@media(max-width:992px){
+
+
+.hero-title{
+
+    font-size:2.8rem;
+
+}
+
+
+}
+
+
+
+@media(max-width:576px){
+
+
+.hero-title{
+
+    font-size:2.2rem;
+
+}
+
+
+.section-padding{
+
+    padding:60px 15px;
+
+}
+
+
+.stat-card h2{
+
+    font-size:2.5rem;
+
+}
+
+
+.cta-section h2{
+
+    font-size:2rem;
+
+}
+
+
+}
